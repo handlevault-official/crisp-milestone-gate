@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crisp Gate Milestone — Phase Verification</title>
+    <title>Crisp Suite — Launch Gate</title>
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#07050a">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,10 +11,10 @@
         :root {
             --bg-main: #07050a;
             --card-bg: rgba(20, 16, 28, 0.85);
-            --gold: #10b981;
-            --gold-light: #6ee7b7;
-            --rose: #059669;
-            --rose-glow: rgba(16, 185, 129, 0.4);
+            --gold: #38bdf8;
+            --gold-light: #bae6fd;
+            --rose: #06b6d4;
+            --rose-glow: rgba(6, 182, 212, 0.4);
             --emerald: #10b981;
             --border: rgba(255, 255, 255, 0.1);
             --text-main: #f8fafc;
@@ -25,10 +25,10 @@
         [data-theme="light"] {
             --bg-main: #f8fafc;
             --card-bg: rgba(255, 255, 255, 0.95);
-            --gold: #047857;
-            --gold-light: #065f46;
-            --rose: #059669;
-            --rose-glow: rgba(5, 150, 105, 0.2);
+            --gold: #0284c7;
+            --gold-light: #0369a1;
+            --rose: #0891b2;
+            --rose-glow: rgba(8, 145, 178, 0.2);
             --emerald: #059669;
             --border: rgba(0, 0, 0, 0.12);
             --text-main: #0f172a;
@@ -57,11 +57,17 @@
 
         .hidden { display: none !important; }
 
-        /* Theme Toggle Button */
-        .theme-toggle {
+        /* Top Controls Container */
+        .controls {
             position: fixed;
             top: 20px;
             right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .control-btn {
             background: var(--card-bg);
             border: 1px solid var(--border);
             color: var(--text-main);
@@ -71,7 +77,6 @@
             font-size: 0.8rem;
             font-weight: 700;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            z-index: 100;
         }
 
         /* --- STEP 1: 3D ENVELOPE --- */
@@ -85,11 +90,11 @@
             position: relative;
             width: 340px;
             height: 230px;
-            background: linear-gradient(135deg, #064e3b, #022c22);
-            border: 1px solid rgba(16, 185, 129, 0.35);
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border: 1px solid rgba(56, 189, 248, 0.35);
             border-radius: 12px;
             margin: 0 auto 25px auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(6, 182, 212, 0.2);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
@@ -103,7 +108,7 @@
             top: 0; left: 0; width: 0; height: 0;
             border-left: 170px solid transparent;
             border-right: 170px solid transparent;
-            border-top: 130px solid #065f46;
+            border-top: 130px solid #1e3a8a;
             transform-origin: top;
             transition: transform 0.6s ease;
             z-index: 3;
@@ -113,9 +118,9 @@
 
         .pocket {
             position: absolute; bottom: 0; left: 0; width: 0; height: 0;
-            border-left: 170px solid #064e3b;
-            border-right: 170px solid #064e3b;
-            border-bottom: 115px solid #022c22;
+            border-left: 170px solid #0f172a;
+            border-right: 170px solid #0f172a;
+            border-bottom: 115px solid #1e293b;
             border-top: 115px solid transparent;
             z-index: 2;
         }
@@ -124,7 +129,7 @@
             position: absolute; top: 95px; left: 50%;
             transform: translateX(-50%);
             width: 64px; height: 64px;
-            background: radial-gradient(circle at 30% 30%, #34d399, #047857);
+            background: radial-gradient(circle at 30% 30%, #38bdf8, #0369a1);
             border: 2px solid var(--gold);
             border-radius: 50%;
             z-index: 4;
@@ -139,14 +144,14 @@
         .env-prompt {
             font-family: 'Cinzel', serif;
             font-size: 1.4rem;
-            color: var(--gold-light);
+            color: var(--gold);
             letter-spacing: 1px;
             margin-bottom: 6px;
         }
 
         .env-sub { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* --- STEP 2: STEP-BY-STEP SCREENING CARD --- */
+        /* --- STEP 2: GATE CARD --- */
         .gate-card {
             width: 100%;
             max-width: 480px;
@@ -187,7 +192,7 @@
         }
 
         .mode-btn.active {
-            background: linear-gradient(135deg, var(--emerald), #047857);
+            background: linear-gradient(135deg, var(--rose), #0284c7);
             color: #fff;
             box-shadow: 0 4px 12px var(--rose-glow);
         }
@@ -195,7 +200,7 @@
         .step-indicator {
             font-size: 0.75rem;
             font-weight: 800;
-            color: var(--gold-light);
+            color: var(--gold);
             letter-spacing: 1.5px;
             text-transform: uppercase;
             margin-bottom: 6px;
@@ -227,7 +232,7 @@
             outline: none;
         }
 
-        input:focus, select:focus { border-color: var(--emerald); }
+        input:focus, select:focus { border-color: var(--gold); }
 
         .btn-group {
             display: flex;
@@ -246,7 +251,7 @@
         }
 
         .btn-next {
-            background: linear-gradient(135deg, var(--emerald), #047857);
+            background: linear-gradient(135deg, var(--rose), #0284c7);
             color: #fff;
             box-shadow: 0 8px 20px var(--rose-glow);
         }
@@ -270,10 +275,10 @@
             width: 100%;
             max-width: 460px;
             background: var(--card-bg);
-            border: 2px solid var(--emerald);
+            border: 2px solid var(--gold);
             border-radius: 24px;
             padding: 32px;
-            box-shadow: 0 25px 60px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 25px 60px rgba(56, 189, 248, 0.2);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -299,7 +304,7 @@
         .vip-pass h2 {
             font-family: 'Cinzel', serif;
             font-size: 1.5rem;
-            color: var(--gold-light);
+            color: var(--gold);
             margin-bottom: 6px;
         }
 
@@ -327,42 +332,45 @@
         .btn-action {
             width: 100%;
             padding: 13px;
-            background: linear-gradient(135deg, var(--emerald), #047857);
+            background: linear-gradient(135deg, var(--gold), #0284c7);
             color: #07050a;
             border: none;
             border-radius: 12px;
             font-weight: 800;
             font-size: 0.95rem;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
         }
     </style>
 </head>
 <body data-theme="dark">
 
-    <button class="theme-toggle" onclick="toggleTheme()">☀️ / 🌙 Theme</button>
+    <div class="controls">
+        <button class="control-btn" onclick="toggleLang()" id="langBtn">🇵🇭 Tagalog</button>
+        <button class="control-btn" onclick="toggleTheme()">☀️ / 🌙</button>
+    </div>
 
     <!-- STEP 1: 3D ENVELOPE -->
     <div class="envelope-wrapper" id="stepEnvelope" onclick="openEnvelope()">
         <div class="envelope" id="envelopeObj">
             <div class="flap"></div>
             <div class="pocket"></div>
-            <div class="wax-seal">🛡️</div>
+            <div class="wax-seal">🚀</div>
         </div>
-        <div class="env-prompt">MILESTONE GATE</div>
-        <div class="env-sub">Tap wax seal to verify phase & lock execution</div>
+        <div class="env-prompt" data-i18n="envPrompt">LAUNCH SEQUENCE GATE</div>
+        <div class="env-sub" data-i18n="envSub">Tap wax seal to initiate countdown & go-live</div>
     </div>
 
     <!-- STEP 2: STEP-BY-STEP SCREENING CARD -->
     <div class="gate-card hidden" id="stepGate">
         <div class="mode-tabs">
-            <button class="mode-btn active" id="tabPhase1" onclick="switchMode('phase1')">🎯 Phase 1 Execution</button>
-            <button class="mode-btn" id="tabPhase2" onclick="switchMode('phase2')">📈 Phase 2 Scaling</button>
+            <button class="mode-btn active" id="tabMainnet" onclick="switchMode('mainnet')">🌐 Mainnet Go-Live</button>
+            <button class="mode-btn" id="tabBeta" onclick="switchMode('beta')">⚡ Beta Release</button>
         </div>
 
-        <div class="step-indicator" id="stepIndicator">Step 1 of 4 • PHASE 1</div>
-        <div class="question-title" id="qTitle">Milestone Lead Name?</div>
-        <div class="question-desc" id="qDesc">Ilagay ang pangalan ng nag-aapruba ng milestone.</div>
+        <div class="step-indicator" id="stepIndicator">Step 1 of 4</div>
+        <div class="question-title" id="qTitle">Commander Name?</div>
+        <div class="question-desc" id="qDesc">Ilagay ang pangalan ng opisyal na magpapatakbo ng launch.</div>
 
         <div class="form-group" id="inputContainer">
             <!-- Dynamically injected input per question -->
@@ -371,38 +379,124 @@
         <div class="error-text" id="errorMsg"></div>
 
         <div class="btn-group">
-            <button class="btn-back hidden" id="btnBack" onclick="prevStep()">Bumalik</button>
-            <button class="btn-next" id="btnNext" onclick="nextStep()">Susunod ➔</button>
+            <button class="btn-back hidden" id="btnBack" onclick="prevStep()" data-i18n="btnBack">Back</button>
+            <button class="btn-next" id="btnNext" onclick="nextStep()" data-i18n="btnNext">Next ➔</button>
         </div>
     </div>
 
     <!-- STEP 3: SUCCESS PASS -->
     <div class="vip-pass hidden" id="stepPass">
-        <div class="success-icon" id="successEmoji">🛡️</div>
-        <h2 id="successHeader">Milestone Verified & Locked</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;" id="successSub">Opisyal nang naitala ang execution phase.</p>
+        <div class="success-icon">🚀</div>
+        <h2 data-i18n="successHeader">Launch Sequence Successful</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;" data-i18n="successSub">Handa nang mag-live ang ecosystem.</p>
 
         <div class="ticket-box">
-            <div class="ticket-row"><span class="t-label">Lead Name:</span><span class="t-val" id="resName"></span></div>
-            <div class="ticket-row"><span class="t-label">Milestone Title:</span><span class="t-val" id="resTitle"></span></div>
-            <div class="ticket-row"><span class="t-label">Target Date:</span><span class="t-val" id="resDate"></span></div>
-            <div class="ticket-row"><span class="t-label">Status:</span><span class="t-val" style="color: var(--emerald);" id="resStatus"></span></div>
-            <div class="ticket-row"><span class="t-label">Auth Code:</span><span class="t-val" style="color: var(--gold-light);" id="resCode"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblCommander">Commander:</span><span class="t-val" id="resName"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblMission">Mission:</span><span class="t-val" id="resMission"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblWindow">Launch Window:</span><span class="t-val" id="resWindow"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblStatus">System Status:</span><span class="t-val" style="color: var(--emerald);" id="resStatus"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblCode">Auth Code:</span><span class="t-val" style="color: var(--gold);" id="resCode"></span></div>
         </div>
 
-        <button class="btn-action" onclick="alert('✅ Milestone Pass verified successfully!')">✨ Copy / Save Milestone Pass</button>
+        <button class="btn-action" onclick="alert('✅ Launch Pass verified successfully!')" data-i18n="btnSave">✨ Save Launch Pass</button>
     </div>
 
     <script>
+        // Multi-language dictionary
+        const langData = {
+            en: {
+                envPrompt: "LAUNCH SEQUENCE GATE",
+                envSub: "Tap wax seal to initiate countdown & go-live",
+                btnBack: "Back",
+                btnNext: "Next ➔",
+                successHeader: "Launch Sequence Successful",
+                successSub: "The ecosystem is fully ready for go-live.",
+                lblCommander: "Commander:",
+                lblMission: "Mission:",
+                lblWindow: "Launch Window:",
+                lblStatus: "System Status:",
+                lblCode: "Auth Code:",
+                btnSave: "✨ Save Launch Pass",
+                stepsMainnet: [
+                    { title: "Commander Name?", desc: "Enter the name of the authorized launch commander.", placeholder: "Admin Crisp" },
+                    { title: "Target Launch Window?", desc: "Example: T-Minus 24 Hours or Immediate.", placeholder: "T-Minus 0 Hours (Immediate)" },
+                    { title: "System Readiness Status?", desc: "Confirm system conditions prior to deployment.", options: [
+                        {val: "Greenlight - Nominal", text: "Greenlight - Nominal (All Systems Go)"},
+                        {val: "Override - Force Deploy", text: "Override - Force Deploy"}
+                    ]},
+                    { title: "Security Clearance Passcode?", desc: "Enter your 4-digit code or key confirmation.", placeholder: "••••", type: "password" }
+                ],
+                stepsBeta: [
+                    { title: "Beta Lead Name?", desc: "Enter the name of the beta coordinator.", placeholder: "Beta Lead" },
+                    { title: "Release Channel?", desc: "Target staging branch or environment.", placeholder: "staging-v2" },
+                    { title: "Diagnostics Status?", desc: "Select staging stability level.", options: [
+                        {val: "Stable Candidate", text: "Stable Candidate"},
+                        {val: "Experimental Build", text: "Experimental Build"}
+                    ]},
+                    { title: "Beta Passcode Key?", desc: "Enter beta access confirmation code.", placeholder: "••••", type: "password" }
+                ]
+            },
+            tl: {
+                envPrompt: "LAUNCH SEQUENCE GATE",
+                envSub: "I-tap ang wax seal upang simulan ang countdown at go-live",
+                btnBack: "Bumalik",
+                btnNext: "Susunod ➔",
+                successHeader: "Tagumpay ang Launch Sequence",
+                successSub: "Handa na ang ecosystem para mag-live.",
+                lblCommander: "Commander:",
+                lblMission: "Misyon:",
+                lblWindow: "Launch Window:",
+                lblStatus: "Katatagan ng Sistema:",
+                lblCode: "Auth Code:",
+                btnSave: "✨ I-save ang Launch Pass",
+                stepsMainnet: [
+                    { title: "Pangalan ng Commander?", desc: "Ilagay ang pangalan ng opisyal na magpapatakbo ng launch.", placeholder: "Admin Crisp" },
+                    { title: "Target Launch Window?", desc: "Halimbawa: T-Minus 24 Oras o kaagad.", placeholder: "T-Minus 0 Oras (Kaagad)" },
+                    { title: "System Readiness Status?", desc: "Kumpirmahin ang kondisyon ng sistema bago i-deploy.", options: [
+                        {val: "Greenlight - Nominal", text: "Greenlight - Nominal (Lahat ng Sistema ay Handang-handa)"},
+                        {val: "Override - Force Deploy", text: "Override - Force Deploy"}
+                    ]},
+                    { title: "Security Clearance Passcode?", desc: "Ilagay ang iyong 4-digit code o key confirmation.", placeholder: "••••", type: "password" }
+                ],
+                stepsBeta: [
+                    { title: "Pangalan ng Beta Lead?", desc: "Ilagay ang pangalan ng beta coordinator.", placeholder: "Beta Lead" },
+                    { title: "Release Channel?", desc: "Target staging branch o environment.", placeholder: "staging-v2" },
+                    { title: "Diagnostics Status?", desc: "Piliin ang antas ng katatagan sa staging.", options: [
+                        {val: "Stable Candidate", text: "Stable Candidate"},
+                        {val: "Experimental Build", text: "Experimental Build"}
+                    ]},
+                    { title: "Beta Passcode Key?", desc: "Ilagay ang beta access confirmation code.", placeholder: "••••", type: "password" }
+                ]
+            }
+        };
+
+        let currentLang = 'en';
         let currentTheme = 'dark';
+        let mode = 'mainnet'; // mainnet or beta
+        let step = 1;
+        let launchDataUser = { name: '', window: '', status: '' };
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'tl' : 'en';
+            document.getElementById('langBtn').innerText = currentLang === 'en' ? '🇵🇭 Tagalog' : '🇬🇧 English';
+            updateStaticText();
+            if (document.getElementById('stepGate').classList.contains('hidden') === false) {
+                renderQuestion();
+            }
+        }
+
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.body.setAttribute('data-theme', currentTheme);
         }
 
-        let mode = 'phase1';
-        let step = 1;
-        let milestoneDataUser = { name: '', targetDate: '', status: '' };
+        function updateStaticText() {
+            const dict = langData[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerText = dict[key];
+            });
+        }
 
         function openEnvelope() {
             document.getElementById('envelopeObj').classList.add('open');
@@ -416,8 +510,8 @@
         function switchMode(selectedMode) {
             mode = selectedMode;
             step = 1;
-            document.getElementById('tabPhase1').classList.toggle('active', mode === 'phase1');
-            document.getElementById('tabPhase2').classList.toggle('active', mode === 'phase2');
+            document.getElementById('tabMainnet').classList.toggle('active', mode === 'mainnet');
+            document.getElementById('tabBeta').classList.toggle('active', mode === 'beta');
             renderQuestion();
         }
 
@@ -425,42 +519,33 @@
             document.getElementById('errorMsg').innerText = '';
             document.getElementById('btnBack').classList.toggle('hidden', step === 1);
             
-            const totalSteps = 4;
-            document.getElementById('stepIndicator').innerText = `Step ${step} of ${totalSteps} • ${mode.toUpperCase()}`;
+            const dict = langData[currentLang];
+            const stepsList = mode === 'mainnet' ? dict.stepsMainnet : dict.stepsBeta;
+            const qData = stepsList[step - 1];
 
-            let title = '', desc = '', html = '';
+            document.getElementById('stepIndicator').innerText = `Step ${step} of 4 • ${mode.toUpperCase()}`;
+            document.getElementById('qTitle').innerText = qData.title;
+            document.getElementById('qDesc').innerText = qData.desc;
 
-            if (step === 1) {
-                title = "Milestone Lead Name?";
-                desc = "Ilagay ang pangalan ng overseer o lead.";
-                html = `<input type="text" id="ansVal" placeholder="Lead Architect" value="${milestoneDataUser.name}">`;
-            } else if (step === 2) {
-                title = "Target Date / Quarter?";
-                desc = "Kailan nakatakdang matapos o ma-lock ang milestone?";
-                html = `<input type="text" id="ansVal" placeholder="Q3 2026" value="${milestoneDataUser.targetDate}">`;
-            } else if (step === 3) {
-                title = "Verification Status?";
-                desc = "Piliin ang kasalukuyang estado ng phase.";
-                html = `<select id="ansVal">
-                    <option value="">Pili ng status...</option>
-                    <option value="Verified & Locked">Verified & Locked (Ready for Execution)</option>
-                    <option value="Under Review">Under Review (Pending Approval)</option>
-                </select>`;
-            } else if (step === 4) {
-                title = "Security Key Confirmation?";
-                desc = "Ilagay ang kumpirmasyon para ma-lock ang phase.";
-                html = `<input type="password" id="ansVal" placeholder="••••" value="">`;
+            let html = '';
+            if (qData.options) {
+                let optionsHtml = `<option value="">${currentLang === 'en' ? 'Select status...' : 'Pumili ng status...'}</option>`;
+                qData.options.forEach(opt => {
+                    optionsHtml += `<option value="${opt.val}">${opt.text}</option>`;
+                });
+                html = `<select id="ansVal">${optionsHtml}</select>`;
+            } else {
+                let val = step === 1 ? launchDataUser.name : (step === 2 ? launchDataUser.window : '');
+                html = `<input type="${qData.type || 'text'}" id="ansVal" placeholder="${qData.placeholder}" value="${val}">`;
             }
+
+            document.getElementById('inputContainer').innerHTML = html;
 
             if (step < 4) {
-                document.getElementById('btnNext').innerText = "Susunod ➔";
+                document.getElementById('btnNext').innerText = dict.btnNext;
             } else {
-                document.getElementById('btnNext').innerText = "Lock Milestone 🛡️";
+                document.getElementById('btnNext').innerText = currentLang === 'en' ? 'Initiate Go-Live 🚀' : 'Simulan ang Go-Live 🚀';
             }
-
-            document.getElementById('qTitle').innerText = title;
-            document.getElementById('qDesc').innerText = desc;
-            document.getElementById('inputContainer').innerHTML = html;
         }
 
         function nextStep() {
@@ -469,13 +554,13 @@
             const val = valElem ? valElem.value.trim() : '';
 
             if (!val) {
-                err.innerText = "⚠️ Paki-fill up ang kinakailangang field bago tumuloy.";
+                err.innerText = currentLang === 'en' ? "⚠️ Please fill out this field before proceeding." : "⚠️ Paki-fill up muna ang patlang na ito.";
                 return;
             }
 
-            if (step === 1) milestoneDataUser.name = val;
-            if (step === 2) milestoneDataUser.targetDate = val;
-            if (step === 3) milestoneDataUser.status = val;
+            if (step === 1) launchDataUser.name = val;
+            if (step === 2) launchDataUser.window = val;
+            if (step === 3) launchDataUser.status = val;
             if (step === 4) {
                 showSuccess();
                 return;
@@ -488,25 +573,21 @@
         function prevStep() {
             if (step > 1) { step--; renderQuestion(); }
         }
-    </script>
-            
-    <!-- 1. Dito mo nilagay ang function mo directly sa index.html -->
-    <script>
+
         function showSuccess() {
             document.getElementById('stepGate').classList.add('hidden');
             
-            document.getElementById('resName').innerText = milestoneDataUser.name;
-            document.getElementById('resTitle').innerText = mode === 'phase1' ? (typeof milestoneData !== 'undefined' ? milestoneData.title : "Phase 1 Execution") : "Phase 2 Ecosystem Scaling";
-            document.getElementById('resDate').innerText = milestoneDataUser.targetDate;
-            document.getElementById('resStatus').innerText = milestoneDataUser.status;
-            document.getElementById('resCode').innerText = 'CRISP-MILE-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+            document.getElementById('resName').innerText = launchDataUser.name;
+            document.getElementById('resMission').innerText = mode === 'mainnet' ? (typeof launchData !== 'undefined' ? launchData.mission : "Mainnet Go-Live") : "Beta Release v2";
+            document.getElementById('resWindow').innerText = launchDataUser.window;
+            document.getElementById('resStatus').innerText = launchDataUser.status;
+            document.getElementById('resCode').innerText = 'CRISP-LAUNCH-' + Math.random().toString(36).substring(2, 7).toUpperCase();
             
             document.getElementById('stepPass').classList.remove('hidden');
         }
     </script>
 
-    <!-- 2. Script para ikonekta ang logic mula sa repo.js -->
+    <!-- repo.js integration -->
     <script src="repo.js"></script>
 </body>
-    </html>
-    
+</html>
