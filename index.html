@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisp Suite - Milestone Gate</title>
+    <!-- Tailwind CSS para sa mabilis at malinis na styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white flex items-center justify-center min-h-screen">
+
+    <div class="max-w-md w-full bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700">
+        <h1 class="text-2xl font-bold mb-6 text-center text-cyan-400">Crisp Suite: Milestone Gate</h1>
+
+        <!-- Step Gate: Input / Action View -->
+        <div id="stepGate" class="space-y-4">
+            <p class="text-slate-300 text-sm">Verify and lock the current execution phase and milestone target.</p>
+            <button onclick="showSuccess()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-2 px-4 rounded transition">
+                Verify Milestone
+            </button>
+        </div>
+
+        <!-- Step Pass: Success / Result View -->
+        <div id="stepPass" class="hidden space-y-4">
+            <div class="p-4 bg-slate-900 rounded border border-emerald-500/50">
+                <p class="text-xs text-emerald-400 font-mono uppercase tracking-wider">Status: Verified & Locked</p>
+                <p class="text-lg font-bold text-white mt-1" id="resTitle"></p>
+                <p class="text-sm text-slate-300 mt-1">Target Date: <span id="resDate" class="font-mono text-cyan-300"></span></p>
+                <p class="text-xs font-mono text-slate-400 mt-3">Auth Code: <span id="resCode" class="text-yellow-400 font-bold"></span></p>
+            </div>
+            <button onclick="location.reload()" class="w-full bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium py-2 px-4 rounded transition">
+                Reset Verification
+            </button>
+        </div>
+    </div>
+
+    <!-- Dito nagtatapos ang UI / HTML elements mo -->
+        
+    <!-- 1. Dito mo nilagay ang function mo directly sa index.html -->
+    <script>
+        function showSuccess() {
+            document.getElementById('stepGate').classList.add('hidden');
+            document.getElementById('resTitle').innerText = milestoneData.title;
+            document.getElementById('resDate').innerText = milestoneData.targetDate;
+            document.getElementById('resCode').innerText = 'CRISP-MILE-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+            
+            document.getElementById('stepPass').classList.remove('hidden');
+        }
+    </script>
+        
+    <!-- 2. Script para ikonekta ang logic mula sa repo.js -->
+    <script src="repo.js"></script>
+</body>
+</html>
