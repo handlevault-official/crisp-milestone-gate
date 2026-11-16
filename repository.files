@@ -1,0 +1,9 @@
+crisp-[gate-name]/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── .gitignore
+├── README.md
+├── manifest.json
+├── index.html
+└── repo.js
